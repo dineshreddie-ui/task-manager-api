@@ -1,33 +1,87 @@
-<<<<<<< HEAD
-# Create T3 App
+# Task Manager API
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A Task Manager API built using Next.js, tRPC, PostgreSQL, and Drizzle ORM.
 
-## What's next? How do I make an app with this?
+## Features
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+* Create a task
+* Get all tasks
+* Update task status
+* Delete a task
+* PostgreSQL database integration
+* Type-safe APIs using tRPC
+* Database schema management using Drizzle ORM
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Tech Stack
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+* Next.js
+* TypeScript
+* tRPC
+* PostgreSQL
+* Drizzle ORM
 
-## Learn More
+## Database Schema
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+### Tasks Table
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+| Column      | Type      | Description                     |
+| ----------- | --------- | ------------------------------- |
+| id          | UUID      | Primary Key (auto-generated)    |
+| title       | String    | Required                        |
+| description | String    | Optional                        |
+| status      | Enum      | pending, in-progress, completed |
+| created_at  | Timestamp | Creation time                   |
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+## API Endpoints (tRPC Procedures)
 
-## How do I deploy this?
+### createTask
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
-=======
-# task-manager-api
->>>>>>> 85946e258ab02aacbe1b7027a34ef15dafb9ad4d
+Creates a new task.
+
+### getTasks
+
+Fetches all tasks.
+
+### updateTask
+
+Updates the status of a task.
+
+### deleteTask
+
+Deletes a task.
+
+## Installation
+
+```bash
+pnpm install
+```
+
+## Environment Variables
+
+Create a `.env` file:
+
+```env
+DATABASE_URL="postgresql://postgres:<password>@localhost:5432/task-manager-api"
+```
+
+## Database Setup
+
+```bash
+pnpm db:push
+```
+
+## Run Development Server
+
+```bash
+pnpm dev
+```
+
+## Build Project
+
+```bash
+pnpm build
+```
+
+## Author
+
+Dinesh Kumar
